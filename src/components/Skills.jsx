@@ -46,7 +46,7 @@ export default function Skills() {
           {skillsData.map((categoryGroup, index) => (
             <div
               key={index}
-              className="bg-white border border-slate-200/80 p-6 rounded-3xl space-y-6 shadow-sm hover:shadow-md hover:border-cyan-300 transition-all"
+              className="bento-card p-6 space-y-6 flex flex-col justify-between"
             >
               <div className="flex items-center gap-3">
                 <div className={`w-10 h-10 rounded-2xl bg-gradient-to-tr ${categoryGroup.color} p-0.5 shadow-md`}>

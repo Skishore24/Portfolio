@@ -67,7 +67,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1 bg-slate-100/90 p-1.5 rounded-full border border-slate-200 backdrop-blur-md shadow-inner">
+        <nav className="hidden md:flex items-center gap-1 bg-white/80 p-1.5 rounded-full border border-slate-200/90 backdrop-blur-xl shadow-sm">
           {navLinks.map((link) => {
             const sectionId = link.href.replace('#', '');
             const isActive = activeSection === sectionId;
@@ -75,13 +75,14 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 ${
+                className={`relative px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 flex items-center gap-1.5 ${
                   isActive
-                    ? 'bg-white text-cyan-700 shadow-md shadow-slate-200/80 font-bold'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                    ? 'bg-slate-900 text-white shadow-md shadow-slate-900/10 font-bold'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
                 }`}
               >
-                {link.name}
+                {isActive && <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>}
+                <span>{link.name}</span>
               </a>
             );
           })}

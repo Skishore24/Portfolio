@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Download, Sparkles, Code, ChevronRight, ShieldCheck, GraduationCap } from 'lucide-react';
+import { Download, Sparkles, Code, ChevronRight, ShieldCheck, GraduationCap, Github, Linkedin, ArrowUpRight } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 const TYPING_TITLES = [
@@ -47,10 +47,12 @@ export default function Hero() {
         {/* Left Column: Headline & Action Buttons */}
         <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
           {/* Status Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-cyan-200 text-cyan-800 text-xs font-mono font-medium shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-            <span className="w-2 h-2 rounded-full bg-emerald-500 -ml-4"></span>
-            <span>Available for AI / ML Roles & Web Development Projects</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-cyan-200/80 text-cyan-900 text-xs font-mono font-semibold shadow-xs">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span>Available for AI / ML Roles & Full-Stack Projects</span>
           </div>
 
           {/* Name & Animated Title */}
@@ -73,11 +75,11 @@ export default function Hero() {
             {personalInfo.bioShort}
           </p>
 
-          {/* Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+          {/* Action Buttons & Social Icons */}
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
             <a
               href="#projects"
-              className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 hover:opacity-95 text-white font-bold text-sm flex items-center gap-2 shadow-lg shadow-cyan-600/20 hover:scale-105 transition-all"
+              className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 hover:opacity-95 text-white font-bold text-sm flex items-center gap-2 shadow-lg shadow-cyan-600/25 hover:scale-[1.02] transition-all"
             >
               <Sparkles className="w-4 h-4" />
               <span>Explore AI Projects & Live Demos</span>
@@ -87,17 +89,40 @@ export default function Hero() {
             <a
               href={personalInfo.resumeUrl}
               download
-              className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-800 font-semibold text-sm flex items-center gap-2 border border-slate-300 shadow-sm transition-all hover:scale-105"
+              className="px-5 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-800 font-semibold text-sm flex items-center gap-2 border border-slate-300 shadow-xs transition-all hover:scale-[1.02]"
             >
               <Download className="w-4 h-4 text-cyan-600" />
-              <span>Download Resume</span>
+              <span>Resume</span>
             </a>
+
+            {/* Quick Social Icon Buttons */}
+            <div className="flex items-center gap-2">
+              <a
+                href={personalInfo.socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl bg-white border border-slate-300 text-slate-700 hover:text-slate-900 hover:border-cyan-500 shadow-xs transition-all hover:scale-105"
+                title="GitHub Profile"
+              >
+                <Github className="w-4 h-4 text-slate-800" />
+              </a>
+
+              <a
+                href={personalInfo.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl bg-white border border-slate-300 text-slate-700 hover:text-blue-600 hover:border-blue-500 shadow-xs transition-all hover:scale-105"
+                title="LinkedIn Profile"
+              >
+                <Linkedin className="w-4 h-4 text-blue-600" />
+              </a>
+            </div>
           </div>
 
           {/* Key Stat Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-200">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-200/80">
             {personalInfo.stats.map((stat, idx) => (
-              <div key={idx} className="bg-white border border-slate-200/80 p-3.5 rounded-xl shadow-sm text-center lg:text-left">
+              <div key={idx} className="bento-card p-3.5 text-center lg:text-left">
                 <div className="text-2xl font-bold font-outfit text-cyan-700">
                   {stat.value}
                 </div>

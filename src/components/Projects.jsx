@@ -70,7 +70,7 @@ export default function Projects() {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="bg-slate-50 rounded-3xl overflow-hidden border border-slate-200/90 flex flex-col justify-between hover:shadow-xl hover:border-cyan-300 transition-all duration-300 group"
+              className="bento-card flex flex-col justify-between group"
             >
               {/* Card Header & Preview Image */}
               <div className="relative overflow-hidden aspect-video bg-slate-900">
@@ -84,7 +84,7 @@ export default function Projects() {
 
                 {/* Badge */}
                 <div className="absolute top-3 left-3 flex items-center gap-2">
-                  <span className="text-[11px] bg-slate-900/90 text-cyan-300 border border-cyan-500/30 px-3 py-1 rounded-full font-mono backdrop-blur-md">
+                  <span className="text-[10px] bg-slate-950/90 text-cyan-300 border border-cyan-500/30 px-3 py-1 rounded-full font-mono backdrop-blur-md font-semibold">
                     {project.badge}
                   </span>
                 </div>
@@ -111,7 +111,7 @@ export default function Projects() {
                 </div>
 
                 {/* Key Metrics */}
-                <div className="grid grid-cols-3 gap-2 bg-white p-3 rounded-2xl border border-slate-200/80 shadow-2xs">
+                <div className="grid grid-cols-3 gap-2 bg-slate-50 p-3 rounded-2xl border border-slate-200/80">
                   {project.metrics.map((m, idx) => (
                     <div key={idx} className="text-center">
                       <div className="text-xs font-bold text-cyan-700 font-outfit truncate">{m.value}</div>

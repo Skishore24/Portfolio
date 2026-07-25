@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle, RefreshCw, Github, Linkedin, Globe, GraduationCap } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle, RefreshCw, Github, Linkedin, Globe, GraduationCap, Copy, Check } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState({ submitting: false, success: false, error: false });
+  const [copiedField, setCopiedField] = useState(null);
+
+  const handleCopy = (text, field) => {
+    navigator.clipboard.writeText(text);
+    setCopiedField(field);
+    setTimeout(() => setCopiedField(null), 2500);
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -63,34 +70,52 @@ export default function Contact() {
           
           {/* Left Column: Contact Information */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white border border-slate-200/80 p-6 rounded-3xl space-y-6 shadow-sm">
+            <div className="bento-card p-6 space-y-6">
               <h3 className="text-xl font-bold font-outfit text-slate-900">Contact Details</h3>
               
               <div className="space-y-4 text-xs">
                 {/* Email */}
-                <div className="flex items-center gap-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80">
-                  <div className="w-9 h-9 rounded-xl bg-cyan-100 border border-cyan-200 flex items-center justify-center text-cyan-700 shrink-0">
-                    <Mail className="w-4 h-4" />
+                <div className="flex items-center justify-between bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80 group">
+                  <div className="flex items-center gap-3 truncate">
+                    <div className="w-9 h-9 rounded-xl bg-cyan-100 border border-cyan-200 flex items-center justify-center text-cyan-700 shrink-0">
+                      <Mail className="w-4 h-4" />
+                    </div>
+                    <div className="truncate">
+                      <div className="text-slate-500 text-[10px] uppercase font-semibold">Email</div>
+                      <a href={`mailto:${personalInfo.email}`} className="text-slate-900 font-semibold hover:text-cyan-700 truncate block">
+                        {personalInfo.email}
+                      </a>
+                    </div>
                   </div>
-                  <div className="truncate">
-                    <div className="text-slate-500 text-[10px] uppercase font-semibold">Email</div>
-                    <a href={`mailto:${personalInfo.email}`} className="text-slate-900 font-semibold hover:text-cyan-700 truncate block">
-                      {personalInfo.email}
-                    </a>
-                  </div>
+                  <button
+                    onClick={() => handleCopy(personalInfo.email, 'email')}
+                    className="p-2 rounded-lg bg-white border border-slate-200 text-slate-500 hover:text-cyan-700 hover:border-cyan-300 transition-all cursor-pointer shrink-0 ml-2"
+                    title="Copy Email"
+                  >
+                    {copiedField === 'email' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                  </button>
                 </div>
 
                 {/* Phone */}
-                <div className="flex items-center gap-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80">
-                  <div className="w-9 h-9 rounded-xl bg-blue-100 border border-blue-200 flex items-center justify-center text-blue-700 shrink-0">
-                    <Phone className="w-4 h-4" />
+                <div className="flex items-center justify-between bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80 group">
+                  <div className="flex items-center gap-3 truncate">
+                    <div className="w-9 h-9 rounded-xl bg-blue-100 border border-blue-200 flex items-center justify-center text-blue-700 shrink-0">
+                      <Phone className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-slate-500 text-[10px] uppercase font-semibold">Phone</div>
+                      <a href={`tel:${personalInfo.phone}`} className="text-slate-900 font-semibold hover:text-blue-700">
+                        {personalInfo.phone}
+                      </a>
+                    </div>
                   </div>
-                  <div>
-                    <div className="text-slate-500 text-[10px] uppercase font-semibold">Phone</div>
-                    <a href={`tel:${personalInfo.phone}`} className="text-slate-900 font-semibold hover:text-blue-700">
-                      {personalInfo.phone}
-                    </a>
-                  </div>
+                  <button
+                    onClick={() => handleCopy(personalInfo.phone, 'phone')}
+                    className="p-2 rounded-lg bg-white border border-slate-200 text-slate-500 hover:text-blue-700 hover:border-blue-300 transition-all cursor-pointer shrink-0 ml-2"
+                    title="Copy Phone Number"
+                  >
+                    {copiedField === 'phone' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                  </button>
                 </div>
 
                 {/* Location */}
@@ -146,7 +171,7 @@ export default function Contact() {
 
           {/* Right Column: Web3Forms Contact Form */}
           <div className="lg:col-span-7">
-            <form onSubmit={handleSubmit} className="bg-white p-8 rounded-3xl border border-slate-200/80 space-y-4 shadow-sm">
+            <form onSubmit={handleSubmit} className="bento-card p-8 space-y-4">
               {/* Success Toast */}
               {status.success && (
                 <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2 animate-fadeIn">
