@@ -84,48 +84,113 @@ export const certificationsData = [
 export const skillsData = [
   {
     category: "AI & Machine Learning",
-    color: "from-teal-500 to-emerald-600",
+    categoryId: "ai-ml",
+    color: "from-cyan-500 to-blue-600",
     skills: [
-      { name: "Machine Learning & Deep Learning", level: 90 },
-      { name: "Convolutional Neural Networks (CNN)", level: 88 },
-      { name: "Data Preprocessing & Feature Engineering", level: 85 },
-      { name: "Model Training & Evaluation (Python)", level: 85 },
+      {
+        name: "Python & Machine Learning",
+        logo: "python",
+        badge: "Core Language",
+        proficiency: "Production Ready",
+        highlights: ["Scikit-Learn", "Feature Engineering", "Data Preprocessing"]
+      },
+      {
+        name: "Convolutional Neural Networks (CNN)",
+        logo: "pytorch",
+        badge: "Deep Learning",
+        proficiency: "Expert",
+        highlights: ["Image Classification", "Plant Pathology AI", "OpenCV Pipelines"]
+      },
+      {
+        name: "Computer Vision & Processing",
+        logo: "opencv",
+        badge: "Vision AI",
+        proficiency: "Advanced",
+        highlights: ["OpenCV", "Real-Time Health Scoring", "Image Preprocessing"]
+      }
     ]
   },
   {
-    category: "Web Technologies & Databases",
+    category: "Web & Database Engineering",
+    categoryId: "web-db",
     color: "from-blue-600 to-indigo-600",
     skills: [
-      { name: "HTML5, CSS3 & JavaScript (ES6+)", level: 92 },
-      { name: "Node.js & Express.js", level: 85 },
-      { name: "MySQL & MongoDB", level: 82 },
-      { name: "Full-Stack Web Architecture", level: 88 },
+      {
+        name: "JavaScript & Modern Web (ES6+)",
+        logo: "javascript",
+        badge: "Frontend & Logic",
+        proficiency: "Expert",
+        highlights: ["Async/Await", "DOM Manipulation", "Modern ES6+ Standards"]
+      },
+      {
+        name: "Node.js & Express.js Framework",
+        logo: "node",
+        badge: "Backend API",
+        proficiency: "Production Ready",
+        highlights: ["REST APIs", "Campus File Management", "Auth Middleware"]
+      },
+      {
+        name: "MySQL & MongoDB Relational/NoSQL",
+        logo: "mysql",
+        badge: "Database",
+        proficiency: "Advanced",
+        highlights: ["Schema Design", "Queries & Indexing", "NoSQL Data Modeling"]
+      },
+      {
+        name: "React & Modern UI Systems",
+        logo: "react",
+        badge: "Frontend Framework",
+        proficiency: "Advanced",
+        highlights: ["Component Architecture", "Tailwind CSS", "State Management"]
+      }
     ]
   },
   {
-    category: "Programming, Tools & Soft Skills",
+    category: "Tools, DevOps & Core Programming",
+    categoryId: "tools-devops",
     color: "from-purple-600 to-pink-600",
     skills: [
-      { name: "Python & Java Programming", level: 88 },
-      { name: "Git, GitHub & VS Code", level: 90 },
-      { name: "Google Colab & Jupyter Environments", level: 85 },
-      { name: "Problem-Solving & Team Collaboration", level: 95 },
+      {
+        name: "Git, GitHub & Version Control",
+        logo: "git",
+        badge: "DevOps",
+        proficiency: "Expert",
+        highlights: ["Branch Workflows", "Repo Management", "Commit Hygiene"]
+      },
+      {
+        name: "Java Object-Oriented Development",
+        logo: "java",
+        badge: "OOP Language",
+        proficiency: "Advanced",
+        highlights: ["Object-Oriented Design", "Data Structures", "Problem Solving"]
+      },
+      {
+        name: "HTML5 & CSS3 Responsive Styling",
+        logo: "html",
+        badge: "Design & Markup",
+        proficiency: "Expert",
+        highlights: ["Glassmorphism", "Responsive Layouts", "Flexbox & Grid"]
+      }
     ]
   }
 ];
 
 export const marqueeTech = [
-  { name: "Python", icon: "terminal" },
-  { name: "Java", icon: "code" },
-  { name: "JavaScript", icon: "code" },
-  { name: "Machine Learning", icon: "brain" },
-  { name: "CNN & Deep Learning", icon: "scan" },
-  { name: "Node.js", icon: "server" },
-  { name: "Express.js", icon: "zap" },
-  { name: "MongoDB", icon: "database" },
-  { name: "MySQL", icon: "database" },
-  { name: "Git & GitHub", icon: "git" },
-  { name: "HTML & CSS", icon: "layout" },
+  { name: "Python", logo: "python" },
+  { name: "JavaScript", logo: "javascript" },
+  { name: "React", logo: "react" },
+  { name: "Node.js", logo: "node" },
+  { name: "Express", logo: "express" },
+  { name: "MongoDB", logo: "mongodb" },
+  { name: "MySQL", logo: "mysql" },
+  { name: "Git", logo: "git" },
+  { name: "GitHub", logo: "github" },
+  { name: "HTML5", logo: "html" },
+  { name: "CSS3", logo: "css" },
+  { name: "Java", logo: "java" },
+  { name: "OpenCV", logo: "opencv" },
+  { name: "PyTorch", logo: "pytorch" },
+  { name: "Tailwind CSS", logo: "tailwind" },
 ];
 
 export const projectsData = [
