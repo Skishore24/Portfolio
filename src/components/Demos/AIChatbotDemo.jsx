@@ -65,7 +65,7 @@ export default function AIChatbotDemo() {
 
     // Code / Portfolio AI Persona
     if (textLower.includes('b.tech') || textLower.includes('education') || textLower.includes('college') || textLower.includes('mcet')) {
-      return "Kishore Kumar S is pursuing B.Tech in Artificial Intelligence and Data Science (2023-2027) at Dr. Mahalingam College of Engineering and Technology, Pollachi (Anna University) with a CGPA of 7.9/10.";
+      return "Kishore Kumar S is pursuing B.Tech in Artificial Intelligence and Data Science (2023-2027) at Dr. Mahalingam College of Engineering and Technology, Pollachi (Anna University).";
     }
     if (textLower.includes('netsaurs') || textLower.includes('intern') || textLower.includes('work')) {
       return "Kishore worked as a Web Development Intern at Netsaurs (June 2025), building core full-stack product features, managing Git version control, integrating APIs, database management, testing, and cloud deployment.";

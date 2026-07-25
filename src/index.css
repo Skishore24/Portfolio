@@ -2,9 +2,10 @@
 
 @layer base {
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background-color: #F8FAFC;
     color: #0F172A;
+    overflow-x: hidden;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -16,51 +17,49 @@
   }
 }
 
-/* Modern Light & Dark Dual Design System */
+/* Mid Light Theme Design System (Figma & Dribbble Clean Portfolio Style) */
 
-/* Light Theme Card Panel */
-.glass-panel-light {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+.light-bg-mesh {
+  background-color: #F8FAFC;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
 }
 
-.glass-panel-light-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Bento Card Mid Light Premium */
+.bento-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
 }
 
-.glass-panel-light-hover:hover {
-  background: rgba(255, 255, 255, 0.98);
-  border-color: rgba(6, 182, 212, 0.4);
-  box-shadow: 0 16px 40px -10px rgba(6, 182, 212, 0.15);
-  transform: translateY(-3px);
+.bento-card:hover {
+  border-color: rgba(6, 182, 212, 0.5);
+  box-shadow: 0 20px 40px -12px rgba(2, 132, 199, 0.12);
+  transform: translateY(-4px);
 }
 
-/* Dark Theme Area Accent Card Panel */
-.glass-panel-dark {
-  background: rgba(11, 15, 25, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.3);
-}
-
+/* Glass Interactive Input */
 .glass-input-light {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(203, 213, 225, 0.8);
-  backdrop-filter: blur(8px);
-  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(203, 213, 225, 0.9);
+  color: #0F172A;
+  backdrop-filter: blur(12px);
+  transition: all 0.25s ease;
 }
 
 .glass-input-light:focus {
   outline: none;
   border-color: #0284C7;
-  box-shadow: 0 0 12px rgba(2, 132, 199, 0.2);
+  box-shadow: 0 0 16px rgba(2, 132, 199, 0.2);
 }
 
-/* Gradient Utilities */
+/* Neon Gradient Utilities */
 .gradient-text-cyan {
   background: linear-gradient(135deg, #0284C7 0%, #06B6D4 50%, #2563EB 100%);
   -webkit-background-clip: text;
@@ -85,22 +84,22 @@
     transform: translate(0px, 0px) scale(1);
   }
   33% {
-    transform: translate(30px, -40px) scale(1.08);
+    transform: translate(40px, -50px) scale(1.08);
   }
   66% {
-    transform: translate(-20px, 20px) scale(0.92);
+    transform: translate(-30px, 30px) scale(0.92);
   }
 }
 
 .animate-blob {
-  animation: blob-bounce 12s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  animation: blob-bounce 14s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .animation-delay-2000 {
-  animation-delay: 2s;
+  animation-delay: 2.5s;
 }
 
-/* Infinite Marquee Scroll */
+/* Continuous Marquee Scroll */
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
@@ -109,14 +108,14 @@
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 25s linear infinite;
+  animation: marquee 30s linear infinite;
 }
 
 .animate-marquee:hover {
   animation-play-state: paused;
 }
 
-/* Typing cursor blink */
+/* Cursor Blink */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
@@ -127,50 +126,20 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes floatSlow {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-}
-
-.animate-float {
-  animation: floatSlow 5s ease-in-out infinite;
-}
-
-/* Bento Grid Cards */
-.bento-card {
-  background: #FFFFFF;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  border-radius: 1.5rem;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.bento-card:hover {
-  border-color: rgba(6, 182, 212, 0.4);
-  box-shadow: 0 20px 40px -15px rgba(2, 132, 199, 0.08);
-  transform: translateY(-4px);
-}
-
-.bento-card-dark {
-  background: #0B0F19;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1.5rem;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.bento-card-dark:hover {
-  border-color: rgba(6, 182, 212, 0.5);
-  box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.15);
-  transform: translateY(-4px);
+/* Terminal Window */
+.terminal-window {
+  background: #090D16;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.4);
 }
 
 /* Custom Scrollbar */
@@ -190,4 +159,3 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #0284C7;
 }
-

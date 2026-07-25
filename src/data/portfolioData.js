@@ -22,7 +22,7 @@ export const personalInfo = {
     portfolio: "https://skishore24-portfolio",
   },
   stats: [
-    { label: "B.Tech CGPA", value: "7.9/10" },
+    { label: "Specialization", value: "AI & DS" },
     { label: "Core Projects", value: "3+" },
     { label: "Internships", value: "1" },
     { label: "Certifications", value: "2" },
@@ -34,7 +34,6 @@ export const educationData = [
     period: "2023 - 2027",
     degree: "Bachelor of Technology in Artificial Intelligence and Data Science",
     institution: "Dr. Mahalingam College of Engineering and Technology, Anna University, Pollachi",
-    score: "CGPA: 7.9 / 10",
     details: "Specializing in Deep Learning, Data Processing, Computer Vision, and Modern Web Engineering."
   },
   {

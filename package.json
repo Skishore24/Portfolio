@@ -2,11 +2,14 @@
   "name": "kishore-kumar-portfolio",
   "private": true,
   "version": "2.0.0",
+  "homepage": "https://skishore24.github.io/Portfolio",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -18,6 +21,7 @@
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.6",
     "@vitejs/plugin-react": "^4.3.4",
+    "gh-pages": "^6.3.0",
     "tailwindcss": "^4.0.6",
     "vite": "^6.1.0"
   }
