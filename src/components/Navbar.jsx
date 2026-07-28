@@ -1,38 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Search, Terminal, Sparkles } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, Search, Terminal } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
-export default function Navbar({ onOpenSearch }) {
+export default function Navbar({ onOpenCommandPalette }) {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+  const navItems = [
+    { id: 'home', label: 'Home', href: '#home' },
+    { id: 'about', label: 'About', href: '#about' },
+    { id: 'skills', label: 'Skills', href: '#skills' },
+    { id: 'projects', label: 'Projects', href: '#projects' },
+    { id: 'experience', label: 'Experience', href: '#experience' },
+    { id: 'contact', label: 'Contact', href: '#contact' },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-
-      const sections = ['home', 'about', 'skills', 'projects', 'contact'];
-      const scrollPosition = window.scrollY + 200;
-
-      for (const section of sections) {
+      const sections = navItems.map((item) => item.id);
+      const current = sections.find((section) => {
         const el = document.getElementById(section);
         if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(section);
-            break;
-          }
+          const rect = el.getBoundingClientRect();
+          return rect.top <= 120 && rect.bottom >= 120;
         }
-      }
+        return false;
+      });
+      if (current) setActiveSection(current);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -40,120 +37,110 @@ export default function Navbar({ onOpenSearch }) {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-white/90 backdrop-blur-2xl border-b border-slate-200/90 py-3 shadow-md shadow-slate-200/50' 
-        : 'bg-transparent py-4 sm:py-5'
-    }`}>
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        scrolled
+          ? 'py-3 bg-[#050816]/90 backdrop-blur-xl border-b border-white/10 shadow-lg'
+          : 'py-5 bg-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        
-        {/* Brand / Logo */}
-        <a href="#home" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 via-blue-600 to-indigo-600 p-0.5 shadow-md shadow-cyan-600/20 group-hover:scale-105 transition-transform duration-300">
-            <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
-              <span className="font-outfit font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-300 text-lg">
-                KK
-              </span>
+        {/* Logo Badge */}
+        <a href="#home" className="flex items-center space-x-2.5 group">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-cyan-400 p-[1px] shadow-sm">
+            <div className="w-full h-full bg-[#050816] rounded-[11px] flex items-center justify-center">
+              <Terminal className="h-4 w-4 text-cyan-400 group-hover:scale-110 transition-transform" />
             </div>
           </div>
-          <div>
-            <span className="font-outfit font-bold text-slate-900 text-base sm:text-lg tracking-tight block group-hover:text-cyan-700 transition-colors">
-              {personalInfo.name}
+          <div className="flex flex-col">
+            <span className="text-sm font-bold text-white tracking-tight flex items-center gap-1.5">
+              {personalInfo.shortName}
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             </span>
-            <span className="text-[10px] text-cyan-700 font-mono font-semibold block -mt-1 tracking-wider uppercase flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              AI & Web Developer
+            <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+              AI & Full Stack
             </span>
           </div>
         </a>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1 bg-white/90 p-1.5 rounded-full border border-slate-200/90 backdrop-blur-2xl shadow-sm">
-          {navLinks.map((link) => {
-            const sectionId = link.href.replace('#', '');
-            const isActive = activeSection === sectionId;
+        {/* Desktop Navigation Menu */}
+        <nav className="hidden md:flex items-center space-x-1 bg-[#0B1120]/80 p-1.5 rounded-full border border-white/10 backdrop-blur-md">
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id;
             return (
               <a
-                key={link.name}
-                href={link.href}
-                className={`relative px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 flex items-center gap-1.5 ${
-                  isActive
-                    ? 'bg-slate-900 text-white shadow-md shadow-slate-900/10 font-bold scale-105'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                key={item.id}
+                href={item.href}
+                className={`relative px-4 py-1.5 rounded-full font-button-text text-xs transition-colors duration-200 ${
+                  isActive ? 'text-white font-semibold' : 'text-slate-300 hover:text-white'
                 }`}
               >
-                {isActive && <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>}
-                <span>{link.name}</span>
+                {isActive && (
+                  <motion.div
+                    layoutId="activePill"
+                    className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full border border-indigo-400/30 -z-10 shadow-sm"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+                {item.label}
               </a>
             );
           })}
         </nav>
 
-        {/* Search & Contact Actions */}
-        <div className="hidden md:flex items-center gap-3">
+        {/* Action Buttons */}
+        <div className="flex items-center space-x-3">
           <button
-            onClick={onOpenSearch}
-            className="px-3 py-2 rounded-xl bg-white hover:bg-slate-100 border border-slate-200 hover:border-cyan-400 text-slate-700 text-xs font-mono flex items-center gap-2 transition-all shadow-xs group cursor-pointer"
-            title="Search Portfolio"
+            onClick={onOpenCommandPalette}
+            className="hidden sm:flex items-center space-x-2 px-3 py-1.5 rounded-xl bg-white/[0.05] border border-white/10 hover:border-indigo-500/40 hover:bg-indigo-600/10 text-slate-200 text-xs font-medium transition-all group"
+            title="Search (⌘K)"
           >
-            <Search className="w-3.5 h-3.5 text-cyan-600 group-hover:scale-110 transition-transform" />
+            <Search className="h-3.5 w-3.5 text-slate-400 group-hover:text-indigo-400 transition-colors" />
             <span>Search</span>
-            <kbd className="px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200 text-[10px] text-slate-500">Ctrl K</kbd>
+            <kbd className="hidden lg:inline-block px-1.5 py-0.5 rounded bg-white/10 text-slate-300 font-mono text-[10px]">⌘K</kbd>
           </button>
 
           <a
             href="#contact"
-            className="px-4.5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 hover:opacity-95 text-white text-xs font-bold flex items-center gap-1.5 shadow-md shadow-cyan-600/20 transition-all hover:scale-105"
+            className="hidden sm:inline-flex items-center px-4 py-1.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-button-text text-xs shadow-md shadow-indigo-600/25 hover:shadow-indigo-600/40 hover:scale-[1.02] active:scale-95 transition-all"
           >
-            <span>Let's Connect</span>
-            <ArrowUpRight className="w-4 h-4" />
+            Hire Me
           </a>
-        </div>
 
-        {/* Mobile Action Buttons */}
-        <div className="flex md:hidden items-center gap-2">
-          <button
-            onClick={onOpenSearch}
-            className="p-2 rounded-xl bg-white border border-slate-200 text-cyan-700 shadow-xs"
-            aria-label="Search"
-          >
-            <Search className="w-5 h-5" />
-          </button>
-          
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-cyan-700 cursor-pointer shadow-xs"
-            aria-label="Toggle Navigation Menu"
+            className="md:hidden p-2 rounded-xl bg-white/[0.05] border border-white/10 text-slate-300 hover:text-white"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Navigation Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white/95 border-b border-slate-200 px-4 pt-3 pb-6 space-y-2 backdrop-blur-3xl shadow-xl animate-fadeIn">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 hover:bg-slate-100 hover:text-cyan-700 transition-colors"
-            >
-              {link.name}
-            </a>
-          ))}
-          <div className="pt-2">
-            <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 text-white font-bold text-sm text-center block shadow-md"
-            >
-              Let's Connect
-            </a>
-          </div>
-        </div>
-      )}
-    </header>
+      {/* Mobile Drawer Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-[#050816]/95 border-b border-white/10 backdrop-blur-2xl px-4 py-4 space-y-2"
+          >
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 hover:text-white hover:bg-white/[0.05]"
+              >
+                {item.label}
+              </a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }

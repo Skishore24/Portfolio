@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Github, Linkedin, Sparkles } from 'lucide-react';
+import { Terminal, ArrowUp, Github, Linkedin, Mail } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Footer() {
@@ -8,56 +8,82 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-slate-800 bg-[#0B0F19] py-10 relative text-slate-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-        
-        {/* Left: Brand & Copyright */}
-        <div className="space-y-1 text-center md:text-left">
-          <div className="flex items-center justify-center md:justify-start gap-2">
-            <span className="font-outfit font-bold text-white text-base">
-              {personalInfo.name}
-            </span>
-            <span className="text-[10px] text-cyan-400 font-mono bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20 font-semibold">
-              AI & Data Science • B.Tech 2023-2027
-            </span>
+    <footer className="py-12 bg-[#050816] border-t border-white/10 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          
+          {/* Logo & Tagline */}
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-purple-600 p-[1px]">
+              <div className="w-full h-full bg-[#050816] rounded-[11px] flex items-center justify-center">
+                <Terminal className="h-4 w-4 text-blue-400" />
+              </div>
+            </div>
+            <div>
+              <span className="text-sm font-bold text-white tracking-tight">
+                {personalInfo.shortName}
+              </span>
+              <p className="text-[11px] text-slate-500">
+                AI Engineer & Full Stack Developer
+              </p>
+            </div>
           </div>
-          <p className="text-xs text-slate-400">
-            &copy; {new Date().getFullYear()} {personalInfo.name}. All rights reserved. Dr. Mahalingam College of Engineering & Technology.
-          </p>
+
+          {/* Quick Nav Links */}
+          <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
+            <a href="#home" className="hover:text-white transition-colors">Home</a>
+            <a href="#about" className="hover:text-white transition-colors">About</a>
+            <a href="#skills" className="hover:text-white transition-colors">Skills</a>
+            <a href="#projects" className="hover:text-white transition-colors">Projects</a>
+            <a href="#experience" className="hover:text-white transition-colors">Experience</a>
+            <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+          </div>
+
+          {/* Socials & Back to Top */}
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2">
+              <a
+                href={personalInfo.socials.github}
+                target="_blank"
+                rel="noreferrer"
+                className="p-2 rounded-xl bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+                title="GitHub"
+              >
+                <Github className="h-4 w-4" />
+              </a>
+              <a
+                href={personalInfo.socials.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="p-2 rounded-xl bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+                title="LinkedIn"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+              <a
+                href={personalInfo.socials.email}
+                className="p-2 rounded-xl bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+                title="Email"
+              >
+                <Mail className="h-4 w-4" />
+              </a>
+            </div>
+
+            <button
+              onClick={scrollToTop}
+              className="p-2.5 rounded-xl bg-blue-600/20 border border-blue-500/30 text-blue-400 hover:bg-blue-600 hover:text-white transition-all shadow-sm"
+              title="Back to Top"
+            >
+              <ArrowUp className="h-4 w-4" />
+            </button>
+          </div>
+
         </div>
 
-        {/* Center: Social Badges */}
-        <div className="flex items-center gap-4">
-          <a
-            href={personalInfo.socials.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-cyan-500/40 transition-all"
-            title="GitHub"
-          >
-            <Github className="w-4 h-4" />
-          </a>
-
-          <a
-            href={personalInfo.socials.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-blue-500/40 transition-all"
-            title="LinkedIn"
-          >
-            <Linkedin className="w-4 h-4" />
-          </a>
+        {/* Copyright Bar */}
+        <div className="mt-8 pt-6 border-t border-white/5 text-center text-xs text-slate-500">
+          © {new Date().getFullYear()} {personalInfo.name}. All rights reserved. Crafted with React, Vite & Tailwind CSS.
         </div>
-
-        {/* Right: Scroll to Top */}
-        <button
-          onClick={scrollToTop}
-          className="px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-slate-300 hover:text-white text-xs font-semibold flex items-center gap-2 transition-all group cursor-pointer"
-        >
-          <span>Back to Top</span>
-          <ArrowUp className="w-3.5 h-3.5 text-cyan-400 group-hover:-translate-y-0.5 transition-transform" />
-        </button>
-
       </div>
     </footer>
   );
