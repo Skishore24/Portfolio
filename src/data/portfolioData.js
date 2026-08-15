@@ -10,7 +10,7 @@ export const personalInfo = {
   greeting: "👋Hello There",
   roleTitle: "AI Engineer & Full Stack Developer",
   tagline: "B.Tech AI & Data Science | Deep Learning, LLMs & Modern Web Systems",
-  heroDescription: "I engineer production AI models, high-performance RAG vector pipelines, and sleek full-stack web applications with modern architecture.",
+  heroDescription: "I am passionate about building technology that solves real-world problems. My work spans software development, full-stack web applications, artificial intelligence, machine learning, databases, and system design. I enjoy exploring new technologies, developing practical solutions, improving application performance, and transforming ideas into complete, user-focused products.",
   bioShort: "AI Engineer focused on computer vision pathology, retrieval-augmented LLM architectures, and scalable full-stack web platforms.",
   bioDetailed: "I am an AI Engineer and Full Stack Developer pursuing B.Tech in AI & Data Science at MCET. With hands-on expertise in PyTorch, Node.js, React, and Generative AI, I bridge mathematical machine learning models with enterprise web products.",
   avatarUrl: myImage,
@@ -80,14 +80,14 @@ export const projectsData = [
     image: plantAiImg,
     badge: "98.4% Accuracy",
     problem: "Crop diseases cause massive yield losses due to delayed manual inspection and lack of instant automated diagnostic tools.",
-    solution: "Engineered a PyTorch CNN vision pipeline with OpenCV preprocessing and sub-85ms softmax classification.",
+    solution: "Engineered a PyTorch CNN vision pipeline with sub-85ms softmax classification.",
     impact: "Delivered instant crop diagnostic scoring across 30+ disease classes with a 98.4% validation accuracy benchmark.",
-    techStack: ["Python", "PyTorch", "CNN", "OpenCV", "FastAPI", "React"],
+    techStack: ["Python", "PyTorch", "CNN", "FastAPI", "React"],
     githubUrl: "https://github.com/Skishore24/PlantDiseaseDectection.git",
     liveDemoUrl: "https://plant-disease-dectection-chi.vercel.app/",
     caseStudy: {
-      overview: "Deep Plant Pathology AI is a deep learning computer vision system designed to inspect crop leaf health and detect fungal, bacterial, and viral infections instantly.",
-      architecture: "Input Leaf Image -> OpenCV Preprocessing & Normalization -> Multi-Stage CNN Feature Extractor -> Softmax Scoring -> Real-time React Diagnostic Dashboard.",
+      overview: "Deep Plant Pathology AI is a deep learning system designed to inspect crop leaf health and detect fungal, bacterial, and viral infections instantly.",
+      architecture: "Input Leaf Image -> Image Preprocessing & Normalization -> Multi-Stage CNN Feature Extractor -> Softmax Scoring -> Real-time React Diagnostic Dashboard.",
       keyResults: [
         "98.4% Validation Classification Accuracy",
         "Sub-85ms Inference Latency per scan",
@@ -100,11 +100,11 @@ export const projectsData = [
     title: "MCET Secure Campus File Cloud",
     category: "Full-Stack",
     categoryBadge: "Full Stack",
-    subtitle: "Campus asset portal with role-based access controls, JWT auth, and instant file query indexing.",
+    subtitle: "Campus asset portal with role-based access controls, JWT auth, and fast database query processing.",
     image: fileCloudImg,
     badge: "Enterprise Security",
     problem: "Academic departments suffered from fragmented asset storage, unencrypted file sharing, and slow document retrieval.",
-    solution: "Architected a role-based access control file management platform with streaming file pipelines and indexing.",
+    solution: "Architected a role-based access control file management platform with streaming file pipelines.",
     impact: "Unified file operations for faculty and students while establishing 100% security isolation across departments.",
     techStack: ["Node.js", "Express.js", "MySQL", "JWT Auth", "Tailwind CSS", "React"],
     githubUrl: "https://github.com/Skishore24",
@@ -113,7 +113,7 @@ export const projectsData = [
       overview: "A secure, campus-wide file exchange portal built for academic institutions to manage, search, and distribute educational content securely.",
       architecture: "Node.js REST API Server -> Express Middleware & JWT Auth -> MySQL Database Schema -> Dynamic React Client.",
       keyResults: [
-        "Sub-50ms database search indexing response",
+        "Sub-50ms database search response",
         "Granular Role-Based Access Control (RBAC)",
         "Zero-latency directory tree navigation UI"
       ]
@@ -135,7 +135,7 @@ export const projectsData = [
     liveDemoUrl: "https://github.com/Skishore24",
     caseStudy: {
       overview: "An enterprise-grade intelligent assistant powered by custom vector embeddings and RAG pipelines to query technical knowledge bases.",
-      architecture: "Document Ingestion & Chunking -> Vector Embedding Model -> Similarity Indexing -> Custom Prompt Synthesis -> React Streaming Chat Client.",
+      architecture: "Document Ingestion & Chunking -> Vector Embedding Model -> Similarity Search -> Custom Prompt Synthesis -> React Streaming Chat Client.",
       keyResults: [
         "Exact citation mapping for generated responses",
         "Zero model hallucination on tested internal benchmarks",
@@ -152,9 +152,9 @@ export const projectsData = [
     image: medicalAiImg,
     badge: "Diagnostic AI",
     problem: "Radiologists face high diagnostic workloads leading to delayed triage for emergency patient scans.",
-    solution: "Developed a computer vision scanner that ingests radiological scans, isolates suspicious regions, and formats diagnostic notes.",
+    solution: "Developed an AI scanner that ingests radiological scans, isolates suspicious regions, and formats diagnostic notes.",
     impact: "Accelerated preliminary scan triaging for emergency cases while providing visual heatmaps for physician verification.",
-    techStack: ["Python", "PyTorch", "OpenCV", "TensorFlow", "FastAPI", "React"],
+    techStack: ["Python", "PyTorch", "TensorFlow", "FastAPI", "React"],
     githubUrl: "https://github.com/Skishore24/disease_predict.git",
     liveDemoUrl: "https://disease-predict-six.vercel.app/",
     caseStudy: {
@@ -200,10 +200,10 @@ export const experienceData = [
     company: "Netsaurs",
     location: "Remote / Hybrid",
     type: "Internship",
-    description: "Engineered core application features across full-stack JavaScript architecture. Developed REST API endpoints, optimized database indexing, and implemented JWT authentication.",
+    description: "Engineered core application features across full-stack JavaScript architecture. Developed REST API endpoints, optimized database queries, and implemented JWT authentication.",
     responsibilities: [
       "Engineered responsive frontend modules in React using modern state management patterns, reducing rendering overhead.",
-      "Developed secure backend API routing with authorization middleware and database query indexing.",
+      "Developed secure backend API routing with authorization middleware and database query optimization.",
       "Implemented automated error logging and client-side form validation mechanisms.",
       "Collaborated using Git branch workflows, code reviews, and performance optimizations."
     ],
@@ -232,7 +232,7 @@ export const skillsCategories = [
     icon: "Layout",
     description: "Building responsive, ultra-fast web interfaces",
     glowColor: "rgba(59, 130, 246, 0.2)",
-    skills: ["React", "Next.js", "Tailwind CSS", "JavaScript", "HTML5", "CSS3"]
+    skills: ["React", "Tailwind CSS", "JavaScript", "HTML5", "CSS3"]
   },
   {
     id: "backend",
@@ -248,7 +248,7 @@ export const skillsCategories = [
     icon: "Brain",
     description: "Deep neural networks & statistical modeling",
     glowColor: "rgba(34, 211, 238, 0.2)",
-    skills: ["Python", "PyTorch", "TensorFlow", "CNN", "Scikit-Learn", "OpenCV", "YOLO"]
+    skills: ["Python", "PyTorch", "TensorFlow", "CNN", "Scikit-Learn"]
   },
   {
     id: "ai-genai",
@@ -256,7 +256,7 @@ export const skillsCategories = [
     icon: "Sparkles",
     description: "Generative AI, LLMs & Retrieval Augmented Gen",
     glowColor: "rgba(168, 85, 247, 0.2)",
-    skills: ["LLMs", "RAG Systems", "Vector DBs", "LangChain", "Prompt Engineering", "Computer Vision"]
+    skills: ["LLMs", "RAG Systems", "Vector DBs", "LangChain", "Prompt Engineering"]
   },
   {
     id: "databases-cloud",
@@ -264,7 +264,7 @@ export const skillsCategories = [
     icon: "Database",
     description: "High performance storage & cloud persistence",
     glowColor: "rgba(16, 185, 129, 0.2)",
-    skills: ["MongoDB", "MySQL", "Firebase", "Vector Indexing"]
+    skills: ["MongoDB", "MySQL"]
   },
   {
     id: "tools-devops",
@@ -287,6 +287,5 @@ export const heroFloatingIcons = [
   { name: "Git", color: "#F05032", icon: "GitBranch" },
   { name: "Linux", color: "#FCC624", icon: "HardDrive" },
   { name: "MongoDB", color: "#47A248", icon: "Database" },
-  { name: "Firebase", color: "#FFCA28", icon: "Flame" },
   { name: "Cloud", color: "#3B82F6", icon: "Cloud" }
 ];

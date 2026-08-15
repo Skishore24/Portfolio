@@ -17,7 +17,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#050816] text-white font-sans antialiased selection:bg-indigo-600 selection:text-white relative overflow-x-hidden bg-mesh-dark bg-grid-pattern bg-noise">
-      {/* Scroll Reading Progress Bar */}
+      {/* Scroll Progress Bar */}
       <ScrollProgress />
 
       {/* Interactive Cursor Spotlight Glow */}
@@ -35,8 +35,8 @@ export default function App() {
       {/* Main Content Sections Flow */}
       <main className="relative z-10 overflow-hidden">
         <Hero />
-        <TechMarquee />
         <About />
+        <TechMarquee />
         <Skills />
         <Projects />
         <Experience />

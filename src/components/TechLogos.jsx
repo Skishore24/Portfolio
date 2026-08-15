@@ -120,8 +120,8 @@ export const GitLogo = ({ className = "w-4 h-4" }) => (
 );
 
 export const GitHubLogo = ({ className = "w-4 h-4" }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none">
-    <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill="#FFFFFF"/>
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
   </svg>
 );
 
@@ -197,8 +197,78 @@ export const JavaLogo = ({ className = "w-4 h-4" }) => (
 
 export const CPlusPlusLogo = ({ className = "w-4 h-4" }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none">
-    <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" fill="#00599C"/>
-    <path d="M11 9h-2v6h2v-2h2v-2h-2V9zm6 2h-1v-1h-1v1h-1v1h1v1h1v-1h1v-1zm3 0h-1v-1h-1v1h-1v1h1v1h1v-1h1v-1z" fill="#FFFFFF"/>
+    <rect width="24" height="24" rx="4" fill="#00599C"/>
+    <text x="3" y="16" fill="#FFFFFF" fontSize="11" fontWeight="bold" fontFamily="sans-serif">C++</text>
+  </svg>
+);
+
+export const ScikitLearnLogo = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <circle cx="9" cy="12" r="6" fill="#F89939"/>
+    <circle cx="15" cy="12" r="6" fill="#3499CD" opacity="0.95"/>
+    <path d="M12 7.2a6 6 0 0 1 0 9.6 6 6 0 0 1 0-9.6z" fill="#F37624"/>
+  </svg>
+);
+
+export const LangChainLogo = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <rect width="24" height="24" rx="5" fill="#1C3C3C"/>
+    <path d="M12 4.5L16.5 9L12 13.5L7.5 9L12 4.5Z" fill="#10B981"/>
+    <path d="M12 10.5L16.5 15L12 19.5L7.5 15L12 10.5Z" fill="#34D399"/>
+  </svg>
+);
+
+export const ViteLogo = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <path d="M21.5 3.5L12.5 21.5L2.5 3.5H7.5L12 13.5L16.5 3.5H21.5Z" fill="url(#viteGradient)"/>
+    <defs>
+      <linearGradient id="viteGradient" x1="2.5" y1="3.5" x2="21.5" y2="21.5" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#41D1FF"/>
+        <stop offset="1" stopColor="#BD34FE"/>
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+export const JWTLogo = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <rect width="24" height="24" rx="4" fill="#000000"/>
+    <circle cx="6" cy="12" r="2" fill="#E255E1"/>
+    <circle cx="12" cy="12" r="2" fill="#D63AFF"/>
+    <circle cx="18" cy="12" r="2" fill="#00F900"/>
+  </svg>
+);
+
+export const RESTAPILogo = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <rect width="24" height="24" rx="5" fill="#0284C7"/>
+    <path d="M7 12h10M13 8l4 4-4 4M11 16l-4-4 4-4" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+export const CNNLogo = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <rect x="3" y="3" width="7" height="7" rx="1.5" fill="#8B5CF6"/>
+    <rect x="14" y="3" width="7" height="7" rx="1.5" fill="#A855F7"/>
+    <rect x="8.5" y="14" width="7" height="7" rx="1.5" fill="#EC4899"/>
+    <path d="M6.5 10v2.5a2 2 0 0 0 2 2h0M17.5 10v2.5a2 2 0 0 1-2 2h0" stroke="#C084FC" strokeWidth="1.5"/>
+  </svg>
+);
+
+export const VectorDBLogo = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <path d="M12 2L3 7v10l9 5 9-5V7l-9-5z" fill="#0891B2"/>
+    <path d="M12 2v10l9-5M12 12l-9-5" stroke="#67E8F9" strokeWidth="1.5"/>
+    <circle cx="12" cy="7" r="1.5" fill="#06B6D4"/>
+    <circle cx="7.5" cy="14.5" r="1.2" fill="#22D3EE"/>
+    <circle cx="16.5" cy="14.5" r="1.2" fill="#38BDF8"/>
+  </svg>
+);
+
+export const PromptEngLogo = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <rect width="24" height="24" rx="5" fill="#F59E0B"/>
+    <path d="M6 8l4 4-4 4M12 16h6" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
@@ -219,9 +289,16 @@ export const RAGLogo = ({ className = "w-4 h-4" }) => (
   </svg>
 );
 
+export const CloudLogo = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" fill="#0284C7"/>
+  </svg>
+);
+
 // Map of all tech & social brand names to their official colored logos
 export const TECH_LOGO_MAP = {
   react: ReactLogo,
+  vite: ViteLogo,
   'next.js': NextjsLogo,
   nextjs: NextjsLogo,
   'tailwind css': TailwindLogo,
@@ -236,6 +313,7 @@ export const TECH_LOGO_MAP = {
   node: NodeLogo,
   nodejs: NodeLogo,
   express: ExpressLogo,
+  'express.js': ExpressLogo,
   fastapi: FastAPILogo,
   python: PythonLogo,
   pytorch: PyTorchLogo,
@@ -260,19 +338,26 @@ export const TECH_LOGO_MAP = {
   java: JavaLogo,
   'c++': CPlusPlusLogo,
   cpp: CPlusPlusLogo,
+  cloud: CloudLogo,
   llms: AILogo,
+  'custom llm': AILogo,
   'rag systems': RAGLogo,
   rag: RAGLogo,
-  'vector dbs': RAGLogo,
-  langchain: AILogo,
-  'prompt engineering': AILogo,
+  'rag pipeline': RAGLogo,
+  'vector dbs': VectorDBLogo,
+  'vector db': VectorDBLogo,
+  langchain: LangChainLogo,
+  'prompt engineering': PromptEngLogo,
   'computer vision': OpenCVLogo,
-  'vector indexing': RAGLogo,
-  cnn: TensorFlowLogo,
-  'scikit-learn': PythonLogo,
+  'vector indexing': VectorDBLogo,
+  cnn: CNNLogo,
+  'scikit-learn': ScikitLearnLogo,
+  scikitlearn: ScikitLearnLogo,
   yolo: OpenCVLogo,
-  'rest apis': ExpressLogo,
-  'jwt auth': ExpressLogo,
+  'rest apis': RESTAPILogo,
+  'rest api': RESTAPILogo,
+  'jwt auth': JWTLogo,
+  jwt: JWTLogo,
 };
 
 // Universal TechIcon Component

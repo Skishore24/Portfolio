@@ -61,7 +61,7 @@ export default function Navbar({ onOpenCommandPalette }) {
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             </span>
             <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
-              AI & Full Stack
+              AI & Web Developer
             </span>
           </div>
         </a>
@@ -96,11 +96,10 @@ export default function Navbar({ onOpenCommandPalette }) {
           <button
             onClick={onOpenCommandPalette}
             className="hidden sm:flex items-center space-x-2 px-3 py-1.5 rounded-xl bg-white/[0.05] border border-white/10 hover:border-indigo-500/40 hover:bg-indigo-600/10 text-slate-200 text-xs font-medium transition-all group"
-            title="Search (⌘K)"
+            title="Search"
           >
             <Search className="h-3.5 w-3.5 text-slate-400 group-hover:text-indigo-400 transition-colors" />
             <span>Search</span>
-            <kbd className="hidden lg:inline-block px-1.5 py-0.5 rounded bg-white/10 text-slate-300 font-mono text-[10px]">⌘K</kbd>
           </button>
 
           <a
